@@ -3,7 +3,7 @@ import type { productType } from "../lib/types"
 import axios from "axios"
 
 export function useProducts() {
-
+  const [product, setproduct] = useState<productType|null>(null)
     const [products, setproducts] = useState<productType[]>([])
     async function getProducts(){
     const res=await axios.get('https://fakestoreapi.com/products')
@@ -11,9 +11,15 @@ export function useProducts() {
     
        setproducts(res.data);
     }
+    async function getSpecificProduct(id:string){
+      const res=await axios.get(`https://fakestoreapi.com/products/${id}`)
+      setproduct(res.data)
+    
+    }
     useEffect(()=>{
         getProducts();
     },[])
     
-  return {products}
+    
+  return {products,getSpecificProduct,product}
 }

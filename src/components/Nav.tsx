@@ -11,8 +11,8 @@ export default function Navbar() {
         
       <div className={`${isOpen&&'flex-col w-full '}   flex items-center justify-between`}>
         
-        <NavLink to="/" className="text-xl font-bold text-green-600">
-          ShopStore
+        <NavLink to="/" className="text-xl font-bold text-primary">
+          <i className="fa-solid fa-store text-primary"> </i>ShopStore
         </NavLink>
 
         <button
@@ -29,7 +29,7 @@ export default function Navbar() {
             <li>
               <NavLink
                 to="/"
-                className="block py-2 text-gray-700 hover:text-green-600 border-b-2 md:border-0 "
+                className="block py-2 text-gray-700 hover:text-primary border-b-2 md:border-0 "
               >
                 Home
               </NavLink>
@@ -37,7 +37,7 @@ export default function Navbar() {
             <li>
               <NavLink
                 to="/"
-                className="block py-2 text-gray-700 hover:text-green-600 border-b-2 md:border-0"
+                className="block py-2 text-gray-700 hover:text-primary border-b-2 md:border-0"
               >
                 Products
               </NavLink>
@@ -45,19 +45,13 @@ export default function Navbar() {
             <li>
               <NavLink
                 to="/"
-                className="block py-2 text-gray-700 hover:text-green-600 border-b-2 md:border-0"
+                className="block py-2 text-gray-700 hover:text-primary border-b-2 md:border-0"
               >
-                Categories
+                <i className="fa-solid fa-cart-shopping mx-1  "></i>
+                Cart
               </NavLink>
             </li>
-            <li>
-              <NavLink
-                to="/"
-                className="block py-2 text-gray-700 hover:text-green-600 border-b-2 md:border-0"
-              >
-                Brands
-              </NavLink>
-            </li>
+            
           </ul>
         </div>
       </div>

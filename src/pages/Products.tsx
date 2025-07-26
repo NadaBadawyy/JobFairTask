@@ -16,9 +16,9 @@ export default function Products() {
                         className=" w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/6 text-left"
                         key={p.id}
                       >
-                        <div className="hover:border-2 hover:shadow-md border-[#0AAD0A] dark:border-[#0AAD0A] rounded-lg group p-2 dark:bg-[#030119] dark:hover:shadow-lg">
+                        <div className="hover:border-2 hover:shadow-md border-primary dark:border-primary rounded-lg group p-2 dark:bg-[#030119] dark:hover:shadow-lg">
                           <Link
-                            to={``}
+                            to={`/products/${p.id}`}
                           
                           >
                             <div className="product">
@@ -26,12 +26,12 @@ export default function Products() {
                                 
                                 <img
                                   src={p.image}
-                                  className="w-[220px] h-[220px] rounded-lg"
+                                  className=" aspect-square rounded-lg"
                                   alt=""
                                 />
                               </div>
   
-                              <h3 className="text-[#0AAD0A] dark:text-[#0AAD0A] text-xl capitalize">
+                              <h3 className="text-primary dark:text-primary text-xl capitalize">
                                  {p.title.split(" ").slice(0, 2).join(" ")}
                               </h3>
                              
@@ -47,7 +47,7 @@ export default function Products() {
                             </div>
                           </Link>
                           <button
-                            className="w-full p-2 rounded-xl bg-[#0AAD0A]  text-white font-bold  opacity-0 group-hover:opacity-100 dark:bg-[#0AAD0A] dark:text-white"
+                            className="w-full p-2 rounded-xl bg-primary  text-white font-bold  opacity-0 group-hover:opacity-100 dark:bg-primary dark:text-white"
                             
                           >
                             add to cart
