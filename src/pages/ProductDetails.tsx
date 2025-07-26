@@ -1,16 +1,19 @@
 import { useParams } from "react-router-dom";
 import { useProducts } from "../hooks/useProducts";
 import { useEffect } from "react";
+import Loading from "../components/Loading";
+import { useCart } from "../hooks/useCart";
 
 export default function ProductDetails() {
   const { id } = useParams();
   const { getSpecificProduct, product } = useProducts();
+  const {AddtoCart}=useCart()
   useEffect(() => {
     id && getSpecificProduct(id);
   }, []);
   return (
     <>
-      {product && (
+      {product ? (
         <div className="mt-10">
           <div className="row md:flex-row flex-col justify-center items-center   ">
             <div className="md:w-1/2 ">
@@ -31,11 +34,16 @@ export default function ProductDetails() {
               <p className="md:text-4xl text-2xl text-primary font-bold my-5">$ {product.price}</p>
               <p className="text-xl font-semibold capitalize my-2">description:</p>
               <p className="text-gray-400 my-3">{product.description}</p>
-              <button className="w-full bg-primary text-white my-5 p-3 rounded-2xl font-bold sm:text-xl   ">Add to Cart</button>
+              <button className="w-full bg-primary text-white my-5 p-3 rounded-2xl font-bold sm:text-xl   " onClick={()=>AddtoCart(product)}>
+                
+                <i className="fa-solid fa-cart-shopping mx-1  "></i>Add to Cart</button>
             </div>
           </div>
         </div>
-      )}
+      ):<>
+      <Loading/>
+      
+      </>}
     </>
   );
 }

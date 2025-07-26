@@ -4,3 +4,9 @@
 .row{
     @apply flex flex-wrap 
 }
+.active{
+    background-color:    #C78DE4;
+    padding: 5px;
+    border-radius: 5px;
+    color: white;
+}

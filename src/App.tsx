@@ -4,6 +4,7 @@ import Products from './pages/Products'
 import ProductDetails from './pages/ProductDetails'
 import CartDetails from './pages/CartDetails'
 import Layout from './components/Layout'
+import { ToastContainer } from 'react-toastify'
 function App() {
   let routes = createBrowserRouter([
     {path:'',element:<Layout/>,children:[
@@ -15,7 +16,7 @@ function App() {
   ])
   return (
     <>
-     
+     <ToastContainer />
     <RouterProvider router={routes}>
       
     </RouterProvider>
