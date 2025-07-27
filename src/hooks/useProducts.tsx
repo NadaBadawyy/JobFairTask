@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import type { productType } from "../lib/types"
 import axios from "axios"
+import { toast } from "react-toastify"
 
 export function useProducts() {
   const [product, setproduct] = useState<productType|null>(null)
@@ -9,14 +10,22 @@ export function useProducts() {
   const [topProducts, settopProducts] = useState<productType[]>([])
   
     async function getProducts(){
-    const res=await axios.get('https://fakestoreapi.com/products')    
-       setFilteredProducts(res.data);
+    await axios.get('https://fakestoreapi.com/products').then((res)=>{
+  setFilteredProducts(res.data);
        setproducts(res.data)
        HomeFiltering(res.data)
+    }).catch(()=>{
+      toast.error('error in fetching')
+    })    
+     
     }
     async function getSpecificProduct(id:string){
-      const res=await axios.get(`https://fakestoreapi.com/products/${id}`)
-      setproduct(res.data)
+      await axios.get(`https://fakestoreapi.com/products/${id}`).then((res)=>{
+          setproduct(res.data)
+      }).catch(()=>{
+        toast.error('error in fetching')
+      })
+      
     }
       
   const sortByPriceAsc = () => {

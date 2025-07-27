@@ -15,7 +15,7 @@ export default function ProductDetails() {
     <>
       {product ? (
         <div className="mt-10">
-          <div className="row md:flex-row flex-col justify-center items-center   ">
+          <div className="row md:flex-row flex-col justify-center items-center p-5   ">
             <div className="md:w-1/2 ">
               <img src={product.image} className="  w-[450px]  " />
             </div>
