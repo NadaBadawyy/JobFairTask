@@ -1,46 +1,19 @@
 import { Link } from "react-router-dom";
-import { useProducts } from "../hooks/useProducts";
-import Loading from "../components/Loading";
+import { useProducts } from "../hooks/useProducts"
+import Loading from "./Loading";
 import { useCart } from "../hooks/useCart";
 
-export default function Products() {
-  const { filtering, FilteredProducts } = useProducts();
-  const { AddtoCart } = useCart();
-
+export default function HomeProducts() {
+    const {topProducts}=useProducts()
+    const {AddtoCart}=useCart()
   return (
-    <>
-      {FilteredProducts.length > 0 ? (
+     <>
+      {topProducts.length > 0 ? (
         <>
-          <div className="mt-10  md:mt-20 lg:mt-5  ">
-            <div className="my-5  md:p-0 text-center">
-              <i className="fa-solid fa-filter mr-1 text-2xl text-primary"></i>
-              <select
-                className=" max-w-xl md:w-full py-2  px-4 border-primary border focus:outline-none rounded-lg  "
-                onChange={(e) => {
-                  filtering(e.target.value);
-                }}
-              >
-                <option value="t" className="capitalize ">
-                  Top Related
-                </option>
-
-                <option value="h" className="capitalize ">
-                  Price: High to Low
-                </option>
-                <option value="l" className="capitalize ">
-                  Price: Low to High
-                </option>
-                <option value="a" className="capitalize ">
-                  Name: A to Z
-                </option>
-                <option value="z" className="capitalize ">
-                  Name: Z to A
-                </option>
-              </select>
-            </div>
+          <div className="    ">
 
             <div className="row p-2 md:gap-5  items-center justify-center">
-              {FilteredProducts.map((p) => {
+              {topProducts.map((p) => {
                 return (
                   <div
                     className=" w-1/2 md:w-1/4 lg:w-1/5 xl:w-1/6 text-left "
@@ -117,5 +90,5 @@ export default function Products() {
         <Loading />
       )}
     </>
-  );
+  )
 }

@@ -5,10 +5,12 @@ import ProductDetails from './pages/ProductDetails'
 import CartDetails from './pages/CartDetails'
 import Layout from './components/Layout'
 import { ToastContainer } from 'react-toastify'
+import Home from './pages/Home'
 function App() {
   let routes = createBrowserRouter([
     {path:'',element:<Layout/>,children:[
-        {path:'/',element:<Products/>},
+        {path:'/',element:<Home/>},
+        {path:'/products',element:<Products/>},
         {path:'/products/:id',element:<ProductDetails/>},
         {path:'/cart',element:<CartDetails/>},
     ]}

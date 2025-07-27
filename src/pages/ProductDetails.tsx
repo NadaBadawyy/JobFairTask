@@ -26,10 +26,36 @@ export default function ProductDetails() {
               </div>
               <p className="mt-10 mb-5 md:text-3xl text-2xl  font-bold">{product.title}</p>
               <div className="rating">
-                <p className="text-slate-600 dark:text-gray-400 text-base  dark:text-white">
-                  <i className="fas fa-star text-yellow-300"></i>
-                  {product.rating.rate}
-                </p>
+                <div className="flex items-center">
+                              <div className="flex">
+                                {[1, 2, 3, 4, 5].map((star) => {
+                                  const fillPercentage =
+                                    Math.max(
+                                      0,
+                                      Math.min(1, product.rating.rate - star + 1)
+                                    ) * 100;
+
+                                  return (
+                                    <div
+                                      key={star}
+                                      className="relative inline-block text-yellow-400 w-4 h-4 leading-none"
+                                    >
+                                      <i className="far fa-star absolute left-0 top-0 w-full h-full" />
+
+                                      <div
+                                        className="absolute left-0 top-0 overflow-hidden h-full"
+                                        style={{ width: `${fillPercentage}%` }}
+                                      >
+                                        <i className="fas fa-star w-full h-full" />
+                                      </div>
+                                    </div>
+                                  );
+                                })}
+                              </div>
+                              <span className="ml-2 text-gray-600 text">
+                                {`(${product.rating.rate.toFixed(1)})`}
+                              </span>
+                            </div>
               </div>
               <p className="md:text-4xl text-2xl text-primary font-bold my-5">$ {product.price}</p>
               <p className="text-xl font-semibold capitalize my-2">description:</p>
