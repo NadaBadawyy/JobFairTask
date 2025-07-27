@@ -1,4 +1,3 @@
-// components/DarkModeToggle.tsx
 import { useEffect, useState } from 'react';
 import { DarkModeSwitch } from 'react-toggle-dark-mode';
 
@@ -19,7 +18,6 @@ export default function DarkModeToggle() {
   };
 
   useEffect(() => {
-    // On initial load
     if (isDarkMode) {
       document.documentElement.classList.add('dark');
     } else {

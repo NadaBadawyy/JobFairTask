@@ -1,4 +1,3 @@
-// src/components/Navbar.tsx
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { useCart } from "../hooks/useCart";
