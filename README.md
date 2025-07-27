@@ -4,24 +4,12 @@ A fully responsive and interactive e-commerce Products Gallery built using React
 
 ---
 
-## 📸 Screenshots
-
-### 🌞 Light Mode
-![Light Mode Home](./screenshots/light-mode-home.png)
-![Light Mode Details](./screenshots/light-mode-details.png)
-
----
 
 ## 🚀 Live Demo
 
-[🔗 Click here to view the live demo](https://your-live-demo-url.com)
+[🔗 Click here to view the live demo](https://job-fair-task-lrbq.vercel.app/)
 
 ---
-### 🌙 Dark Mode
-![Dark Mode Home](./screenshots/dark-mode-home.png)
-![Dark Mode Details](./screenshots/dark-mode-details.png)
-
-> _(Make sure to include these actual images in a `/screenshots` folder in your repo.)_
 
 
 
@@ -29,6 +17,7 @@ A fully responsive and interactive e-commerce Products Gallery built using React
 
 - **Framework:** React (v18+)
 - **Styling:** Tailwind CSS
+- **Login:** TypeScript
 - **API:** Fake Store API
 - **Routing:** React Router DOM
 - **Dark Mode:** `react-toggle-dark-mode` + Tailwind's dark class

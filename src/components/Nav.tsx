@@ -49,7 +49,7 @@ export default function Navbar() {
             <li className="relative bg-red">
               <NavLink
                 to="/cart"
-                className="block p-3 py-2 text-gray-700 dark:text-gray-200 hover:text-primary border-b-2 md:border-0 "
+                className="block p-3 py-2 text-gray-700 dark:text-gray-200 hover:text-black border-b-2 md:border-0 "
               >
                 <div className="">
                  <i className="fa-solid fa-cart-shopping mx-1"></i>
