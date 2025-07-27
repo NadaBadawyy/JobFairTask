@@ -15,7 +15,7 @@ export default function Products() {
             <div className="my-5  md:p-0 text-center">
               <i className="fa-solid fa-filter mr-1 text-2xl text-primary"></i>
               <select
-                className=" max-w-xl md:w-full py-2  px-4 border-primary border focus:outline-none rounded-lg  "
+                className=" max-w-xl md:w-full py-2 dark:bg-darksec dark:text-white  px-4 border-primary border focus:outline-none rounded-lg  "
                 onChange={(e) => {
                   filtering(e.target.value);
                 }}
@@ -91,7 +91,7 @@ export default function Products() {
                                     );
                                   })}
                                 </div>
-                                <span className="ml-2 text-gray-600 text">
+                                <span className="ml-2 text-gray-600 dark:text-gray-100 text">
                                   {`(${p.rating.rate.toFixed(1)})`}
                                 </span>
                               </div>

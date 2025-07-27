@@ -22,6 +22,8 @@ export default {
       },
       colors:{
         'primary':'#C78DE4',
+        'darkcolor':'#111827',
+        'darksec':'#1F2937'
         
       }
       

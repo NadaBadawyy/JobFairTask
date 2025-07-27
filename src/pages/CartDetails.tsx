@@ -11,15 +11,16 @@ export default function CartDetails() {
     <>
       {products.length > 0 ? (
         <>
-          <div className="p-5 my-10 font-mono">
+          <div className="p-5 my-5 font-mono">
             <h2 className="my-10 text-3xl font-mono text-center dark:text-white">
               My Cart
             </h2>
             {products.map((p,i) => {
               return (
+                
                 <div
                   key={i}
-                  className="flex justify-center items-center md:flex-row flex-col p-3  border-y-2 border-gray-200"
+                  className=" flex justify-center items-center md:flex-row flex-col p-3  border-y-2 border-gray-200"
                 >
                   <div className="flex items-center justify-between  ">
                     <div className="item w-1/3 md:w-1/4 m-auto md:m-0">
@@ -55,9 +56,9 @@ export default function CartDetails() {
           </div>
         </>
       ) : (
-        <div className="mt-20 flex justify-center">
+        <div className="mt-20 flex justify-center  dark:text-gray-100  ">
           <div className="">
-            <i className="fa-solid fa-box-open text-9xl text-gray-500  text-center my-5"></i>
+            <i className="fa-solid fa-box-open text-9xl text-gray-500 dark:text-gray-100 text-center my-5"></i>
             <p className="text-3xl font-bold capitalize ">Your cart is empty</p>
             <p className="text-gray-400 my-5">
               Looks like you haven't added any items to your cart yet.

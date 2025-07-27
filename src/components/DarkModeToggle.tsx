@@ -32,9 +32,9 @@ export default function DarkModeToggle() {
       <DarkModeSwitch
         checked={isDarkMode}
         onChange={toggleDarkMode}
-        size={30}
-        sunColor="#facc15"
-        moonColor="#3b82f6"
+        size={22}
+        sunColor="#C78DE4"
+        moonColor="#C78DE4"
       />
     </div>
   );

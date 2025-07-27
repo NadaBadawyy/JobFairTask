@@ -7,10 +7,10 @@ export default function HomeProducts() {
     const {topProducts}=useProducts()
     const {AddtoCart}=useCart()
   return (
-     <>
+     <div>
       {topProducts.length > 0 ? (
         <>
-          <div className="    ">
+          <div className=" ">
 
             <div className="row p-2 md:gap-5  items-center justify-center">
               {topProducts.map((p) => {
@@ -89,6 +89,6 @@ export default function HomeProducts() {
       ) : (
         <Loading />
       )}
-    </>
+    </div>
   )
 }

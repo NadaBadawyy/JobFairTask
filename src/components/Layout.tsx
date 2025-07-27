@@ -5,7 +5,7 @@ import Footer from './Footer'
 export default function Layout() {
   return (
     <>
-    <div className="font-mono">
+    <div className="font-mono dark:bg-darkcolor">
       <div className="min-h-[85vh]">
         <Nav/>
       <Outlet/></div>
