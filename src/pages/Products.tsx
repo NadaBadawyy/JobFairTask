@@ -3,15 +3,17 @@ import { useProducts } from "../hooks/useProducts";
 import Loading from "../components/Loading";
 import { useCart } from "../hooks/useCart";
 
-export default function Products() {
-  const { filtering, FilteredProducts } = useProducts();
-  const { AddtoCart } = useCart();
 
+export default function Products() {
+  const { filtering, FilteredProducts,handleSearch } = useProducts();
+  const { AddtoCart } = useCart();
+ 
+  
   return (
     <>
-      {FilteredProducts.length > 0 ? (
+      {FilteredProducts? (
         <>
-          <div className="mt-10  md:mt-20 lg:mt-5  ">
+        <><div className="mt-10  md:mt-20 lg:mt-5  ">
             <div className="my-5  md:p-0 text-center">
               <i className="fa-solid fa-filter mr-1 text-2xl text-primary"></i>
               <select
@@ -38,7 +40,21 @@ export default function Products() {
                 </option>
               </select>
             </div>
+            <div className="flex justify-center ">
+              <div className="p-2 rounded-xl ml-2 my-3 dark:bg-darksec flex justify-between items-center  border border-primary w-fit ">
+              <i className="fa-solid fa-magnifying-glass mx-2 dark:text-white "> </i>
+              <input
+                type="text"
+                className="bg-transparent border-transparent font-sans  focus:outline-none dark:text-white border-0 text-black w-full"
+                onInput={(e) => {
+                  handleSearch((e.target as HTMLInputElement).value);
+                }}
+              />
+            </div>
 
+            </div>
+            {FilteredProducts.length>0?<>
+            
             <div className="row p-2 md:gap-5  items-center justify-center">
               {FilteredProducts.map((p) => {
                 return (
@@ -111,7 +127,18 @@ export default function Products() {
                 );
               })}
             </div>
+            </>:<>
+        <div className="mt-20 flex justify-center  dark:text-gray-100  ">
+          <div className="">
+            <i className="fa-solid fa-box-open text-9xl text-gray-500 dark:text-gray-100 text-center my-5"></i>
+            <p className="text-3xl font-bold capitalize ">No Product Found</p>
+            
           </div>
+        </div>
+        </>}
+            
+          </div></>
+          
         </>
       ) : (
         <Loading />

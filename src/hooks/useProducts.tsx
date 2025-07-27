@@ -4,9 +4,10 @@ import axios from "axios"
 
 export function useProducts() {
   const [product, setproduct] = useState<productType|null>(null)
-  const [FilteredProducts, setFilteredProducts] = useState<productType[]>([])
+  const [FilteredProducts, setFilteredProducts] = useState<productType[]|null>(null)
   const [products, setproducts] = useState<productType[]>([])
   const [topProducts, settopProducts] = useState<productType[]>([])
+  
     async function getProducts(){
     const res=await axios.get('https://fakestoreapi.com/products')    
        setFilteredProducts(res.data);
@@ -16,7 +17,6 @@ export function useProducts() {
     async function getSpecificProduct(id:string){
       const res=await axios.get(`https://fakestoreapi.com/products/${id}`)
       setproduct(res.data)
-    
     }
       
   const sortByPriceAsc = () => {
@@ -45,11 +45,10 @@ export function useProducts() {
       setFilteredProducts(sorted)
     }
     const HomeFiltering=(producttofilter:productType[])=>{
-      console.log(producttofilter);
       
      const sorted = [...producttofilter].sort((a, b) => b.rating.rate - a.rating.rate);
     const top4= sorted.slice(0,4);
-    console.log(sorted);
+
     
     settopProducts(top4);
     }
@@ -61,13 +60,23 @@ export function useProducts() {
       else if(param=='z') sortByNameDesc();
      
     }
+    function handleSearch(val: string) {
+      const value= val.toLowerCase()
+      
+      
+    setFilteredProducts(products.filter((p) => {
+      const title=p.title.split(" ").slice(0, 2).join(" ")
+
+      return title.includes(value)
+
+    }));
+  }
     useEffect(()=>{
       getProducts();
-      setFilteredProducts(products);
      
       
     },[])
     
     
-  return {FilteredProducts,filtering,getSpecificProduct,product,topProducts}
+  return {FilteredProducts,filtering,getSpecificProduct,product,topProducts,handleSearch}
 }

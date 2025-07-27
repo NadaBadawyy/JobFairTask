@@ -1,8 +1,10 @@
 import { toast } from "react-toastify";
 import type { productType } from "../lib/types";
+import { useState } from "react";
 
 export function useCart() {
-    const products:productType[]=JSON.parse(localStorage.getItem('items')||'[]')
+    const [products, setproducts] = useState<productType[]>(JSON.parse(localStorage.getItem('items')||'[]'))
+   
     function AddtoCart(p:productType){
         products.push(p);
         localStorage.setItem('items',JSON.stringify(products))

@@ -11,6 +11,7 @@ export default function CartDetails() {
     <>
       {products.length > 0 ? (
         <>
+        
           <div className="p-5 my-5 font-mono">
             <h2 className="my-10 text-3xl font-mono text-center dark:text-white">
               My Cart
